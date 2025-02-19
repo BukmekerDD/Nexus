@@ -18,12 +18,10 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh -s -- -y
 echo "Добавление cargo в PATH..."
 source "$HOME/.cargo/env"
 echo 'export PATH="$HOME/.cargo/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
 
 echo "Обновление Rust..."
 rustup update
 
-echo "Запуск screen сессии..."
-screen -S nexus
-
 echo "Скачивание и установка Nexus..."
-curl -o -y nexus_install.sh https://cli.nexus.xyz/ && chmod +x nexus_install.sh && ./nexus_install.sh -y
+curl -o nexus_install.sh https://cli.nexus.xyz/ && chmod +x nexus_install.sh && ./nexus_install.sh
